@@ -7,13 +7,13 @@
   iframe.id = scriptId;
   
   // ✅ Add query parameter to indicate it's embedded
-  iframe.src = "https://linguachatbot.netlify.app/?embedded=true";
+  iframe.src = "https://linguachatbot.netlify.app?embedded=true";
   
- // ✅ POSITIONING & SIZE
+  // ✅ POSITIONING & SIZE
   iframe.style.position = "fixed";
   iframe.style.bottom = "20px";
   iframe.style.right = "20px";
-  iframe.style.width = "100%";
+  iframe.style.width = "400px";
   iframe.style.height = "600px";
   
   // ✅ COMPLETE TRANSPARENCY SETTINGS
