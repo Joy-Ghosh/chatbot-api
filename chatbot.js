@@ -4,22 +4,22 @@
 
   const iframe = document.createElement("iframe");
   iframe.id = scriptId;
-  iframe.src = "https://linguachatbot.netlify.app/"; 
+  iframe.src = "https://linguachatbot.netlify.app/";
   // ✅ FLOAT BOTTOM-RIGHT
   iframe.style.position = "fixed";
   iframe.style.bottom = "20px";
   iframe.style.right = "20px";
 
   // ✅ FIXED WIDGET SIZE
-  iframe.style.width = "400px";
-  iframe.style.height = "600px";
+  iframe.style.width = "400px"; // 96 * 4 (tailwind w-96 = 384px)
+  iframe.style.height = "600px"; // To match h-[600px] from your code
 
   // ✅ MAKE IT LOOK LIKE A CHAT WIDGET
   iframe.style.border = "none";
   iframe.style.zIndex = "9999";
-  iframe.style.borderRadius = "16px";
-  iframe.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)";
-  iframe.style.overflow = "hidden";
+  // iframe.style.borderRadius = "16px";
+  // iframe.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)";
+  iframe.style.overflow = "visible";
   iframe.style.background = "transparent";
   iframe.allow = "clipboard-write; microphone; camera";
 
