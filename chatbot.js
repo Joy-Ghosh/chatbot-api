@@ -13,7 +13,7 @@
   iframe.style.position = "fixed";
   iframe.style.bottom = "20px";
   iframe.style.right = "20px";
-  iframe.style.width = "400px";
+  iframe.style.width = "100%";
   iframe.style.height = "600px";
   
   // ✅ COMPLETE TRANSPARENCY SETTINGS
