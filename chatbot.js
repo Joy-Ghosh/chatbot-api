@@ -1,30 +1,37 @@
 (function () {
   const scriptId = "my-chatbot-widget";
+  
   if (document.getElementById(scriptId)) return;
-
+  
   const iframe = document.createElement("iframe");
   iframe.id = scriptId;
-  iframe.src = "https://linguachatbot.netlify.app/";
-  // ✅ FLOAT BOTTOM-RIGHT
+  
+  // ✅ Add query parameter to indicate it's embedded
+  iframe.src = "https://linguachatbot.netlify.app/?embedded=true";
+  
+  // ✅ POSITIONING & SIZE
   iframe.style.position = "fixed";
   iframe.style.bottom = "20px";
   iframe.style.right = "20px";
-
-  // ✅ FIXED WIDGET SIZE
-  iframe.style.width = "400px"; // 96 * 4 (tailwind w-96 = 384px)
-  iframe.style.height = "600px"; // To match h-[600px] from your code
-
-  // ✅ MAKE IT LOOK LIKE A CHAT WIDGET
+  iframe.style.width = "400px";
+  iframe.style.height = "600px";
+  
+  // ✅ TRANSPARENCY SETTINGS
   iframe.style.border = "none";
-  iframe.style.zIndex = "9999";
-  // iframe.style.borderRadius = "16px";
-  // iframe.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)";
-  iframe.style.overflow = "visible";
   iframe.style.background = "transparent";
-  iframe.allow = "clipboard-write; microphone; camera";
-
-  // ✅ ADD TRANSPARENT BACKGROUND TO IFRAME IF SUPPORTED
+  iframe.style.zIndex = "9999";
+  iframe.style.overflow = "visible";
+  iframe.style.pointerEvents = "none"; // Allow clicks to pass through transparent areas
+  
+  // ✅ IFRAME ATTRIBUTES
   iframe.setAttribute("allowTransparency", "true");
-
+  iframe.setAttribute("frameBorder", "0");
+  iframe.allow = "clipboard-write; microphone; camera";
+  
+  // ✅ Enable pointer events only on the iframe content
+  iframe.onload = function() {
+    iframe.style.pointerEvents = "auto";
+  };
+  
   document.body.appendChild(iframe);
 })();
